@@ -1,0 +1,725 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Membuat Laporan</title>
+        <style>
+            body {
+                background-image: url('background toko.jpg');
+                background-size: cover;
+                background-position: center;
+                background-attachment: fixed;
+                color: white;
+                font-family: Arial, sans-serif;
+                text-align: center;
+            }
+
+            @media print {
+                .no-print {
+                    display: none !important;
+                }
+            }
+
+            h2, h3 {
+                background: rgba(0, 0, 0, 0.6);
+                padding: 15px;
+                border-radius: 10px;
+                margin: 20px auto;
+                max-width: 800px;
+            }
+
+            h3 {
+                background-color: rgba(0, 0, 0, 0.7);
+                font-size: 20px;
+            }
+
+            table {
+                width: 90%;
+                margin: 20px auto;
+                border-collapse: collapse;
+                background: rgba(0, 0, 0, 0.8);
+                color: white;
+                border-radius: 10px;
+            }
+
+            th, td {
+                padding: 12px;
+                text-align: center;
+                border: 1px solid rgba(255, 165, 0, 0.8);
+            }
+
+            th {
+                background-color: rgba(255, 165, 0, 0.9);
+            }
+
+            td {
+                background-color: rgba(0, 0, 0, 0.7);
+            }
+
+            button {
+                background-color: #ff9900;
+                color: white;
+                border: none;
+                padding: 10px;
+                cursor: pointer;
+                border-radius: 5px;
+                margin-top: 10px;
+            }
+
+            button:hover {
+                background-color: #e68a00;
+            }
+
+            form {
+                max-width: 400px;
+                margin: 20px auto;
+                background-color: rgba(0, 0, 0, 0.7);
+                padding: 20px;
+                border-radius: 10px;
+            }
+
+            label {
+                display: block;
+                margin: 10px 0 5px;
+            }
+
+            input[type="text"], input[type="number"] {
+                width: 100%;
+                padding: 8px;
+                margin-bottom: 15px;
+                background-color: rgba(255, 255, 255, 0.8);
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                color: black;
+            }
+
+            input[type="text"]:focus, input[type="number"]:focus {
+                outline: none;
+                border: 1px solid #ff9900;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="no-print">
+            <h2>SELAMAT DATANG DI QILA STORE</h2>
+            <h3>Aplikasi Pengelolaan Penjualan</h3>
+
+            <!-- Form Entri Barang -->
+            <h3>Input Data Barang</h3>
+            <form id="formBarang">
+                <label for="namaBarang">Nama Barang:</label>
+                <input type="text" id="namaBarang" required>
+
+                <label for="harga">Harga:</label>
+                <input type="number" id="harga" required>
+
+                <label for="stok">Stok:</label>
+                <input type="number" id="stok" required>
+
+                <button type="button" onclick="tambahBarang()">Tambah Barang</button>
+            </form>
+
+            <!-- Form Entri Pelanggan -->
+            <h3>Input Data Pelanggan</h3>
+            <form id="formPelanggan">
+                <label for="namaPelanggan">Nama Pelanggan:</label>
+                <input type="text" id="namaPelanggan" required>
+
+                <label for="nomorHP">Nomor HP:</label>
+                <input type="text" id="nomorHP" required>
+
+                <button type="button" onclick="tambahPelanggan()">Tambah Pelanggan</button>
+            </form>
+
+            <!-- Form Transaksi Penjualan -->
+            <h3>Transaksi Penjualan</h3>
+            <form id="formTransaksi">
+                <label for="transaksiPelanggan">Pelanggan:</label>
+                <input type="text" id="transaksiPelanggan" required>
+
+                <label for="transaksiBarang">Barang:</label>
+                <input type="text" id="transaksiBarang" required>
+
+                <label for="transaksiJumlah">Jumlah:</label>
+                <input type="number" id="transaksiJumlah" required>
+
+                <button type="button" onclick="tambahTransaksi()">Tambah Transaksi</button>
+            </form>
+
+            <!-- Tabel Data Barang -->
+            <h3>Daftar Barang</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Nama Barang</th>
+                        <th>Harga</th>
+                        <th>Stok</th>
+                    </tr>
+                    <tr>
+                        <th>1</th>
+                        <th>Beras Anak Daro 1kg</th>
+                        <th>Rp 15.000,00</th>
+                        <th>10</th>
+                    </tr>
+                    <tr>
+                        <th>2</th>
+                        <th>Beras Bramo 1kg</th>
+                        <th>Rp 16.000,00</th>
+                        <th>10</th>
+                    </tr>
+                    <tr>
+                        <th>3</th>
+                        <th>Minyak Goreng Sunco 1 liter</th>
+                        <th>Rp 23.500,00</th>
+                        <th>10</th>
+                    </tr>
+                    <tr>
+                        <th>4</th>
+                        <th>Gula Pasir 1kg</th>
+                        <th>Rp 15.000,00</th>
+                        <th>10</th>
+                    </tr>
+                    <tr>
+                        <th>5</th>
+                        <th>Gula Merah 1kg</th>
+                        <th>Rp 18.000,00</th>
+                        <th>10</th>
+                    </tr>
+                    <tr>
+                        <th>6</th>
+                        <th>Tepung Terigu 1 kg</th>
+                        <th>Rp 12.000,00</th>
+                        <th>10</th>
+                    </tr>
+                    <tr>
+                        <th>7</th>
+                        <th>Tepung Maizena 1 kotak</th>
+                        <th>Rp 5.000,00</th>
+                        <th>10</th>
+                    </tr>
+                    <tr>
+                        <th>8</th>
+                        <th>Tepung Beras 500 gram</th>
+                        <th>Rp 12.000,00</th>
+                        <th>10</th>
+                    </tr>
+                    <tr>
+                        <th>9</th>
+                        <th>Telur Ayam / butir</th>
+                        <th>Rp 2.000,00</th>
+                        <th>10</th>
+                    </tr>
+                    <tr>
+                        <th>10</th>
+                        <th>Telur Bebek / butir</th>
+                        <th>Rp 3.000,00</th>
+                        <th>10</th>
+                    </tr>
+                    <tr>
+                        <th>11</th>
+                        <th>Telur Puyuh 15 butir</th>
+                        <th>Rp 10.000,00</th>
+                        <th>10</th>
+                    </tr>
+                    <tr>
+                        <th>12</th>
+                        <th>Susu UHT 1 liter</th>
+                        <th>Rp 15.000,00</th>
+                        <th>10</th>
+                    </tr>
+                    <tr>
+                        <th>13</th>
+                        <th>Susu Bubuk 250 gram</th>
+                        <th>Rp 20.000,00</th>
+                        <th>10</th>
+                    </tr>
+                    <tr>
+                        <th>14</th>
+                        <th>Susu Kental Manis 400 gram</th>
+                        <th>Rp 10.000,00</th>
+                        <th>10</th>
+                    </tr>
+                    <tr>
+                        <th>15</th>
+                        <th>Indomie Goreng/bungkus</th>
+                        <th>Rp 2.500,00</th>
+                        <th>10</th>
+                    </tr>
+                    <tr>
+                        <th>16</th>
+                        <th>Indomie Kuah/bungkus</th>
+                        <th>Rp. 2.500,00</th>
+                        <th>10</th>
+                    </tr>
+                    <tr>
+                        <th>17</th>
+                        <th>Pop Mie Goreng/bungkus</th>
+                        <th>Rp 5.000,00</th>
+                        <th>10</th>
+                    </tr>
+                    <tr>
+                        <th>18</th>
+                        <th>Pop Mie Kuah/bungkus</th>
+                        <th>Rp 5.000,00</th>
+                        <th>10</th>
+                    </tr>
+                    <tr>
+                        <th>19</th>
+                        <th>Kopi Bubuk 100 gram</th>
+                        <th>Rp 15.000,00</th>
+                        <th>10</th>
+                    </tr>
+                    <tr>
+                        <th>20</th>
+                        <th>Kopi Sachet/bungkus</th>
+                        <th>Rp 3.000,00</th>
+                        <th>10</th>
+                    </tr>
+                    <tr>
+                        <th>21</th>
+                        <th>Kopi Instan/bungkus</th>
+                        <th>Rp 5.000,00</th>
+                        <th>10</th>
+                    </tr>
+                    <tr>
+                        <th>22</th>
+                        <th>Teh Celup/bungkus</th>
+                        <th>Rp 3.000,00</th>
+                        <th>10</th>
+                    </tr>
+                    <tr>
+                        <th>23</th>
+                        <th>Teh Celup Herbal/bungkus</th>
+                        <th>Rp 5.000,00</th>
+                        <th>10</th>
+                    </tr>
+                    <tr>
+                        <th>24</th>
+                        <th>Sereal Gandum/bungkus</th>
+                        <th>Rp 15.000,00</th>
+                        <th>10</th>
+                    </tr>
+                    <tr>
+                        <th>25</th>
+                        <th>Sereal Jagung/bungkus</th>
+                        <th>Rp 12.000,00</th>
+                        <th>10</th>
+                    </tr>
+                    <tr>
+                        <th>26</th>
+                        <th>Garam Halus 1kg</th>
+                        <th>Rp 6.000,00</th>
+                        <th>10</th>
+                    </tr>
+                    <tr>
+                        <th>27</th>
+                        <th>Garam Kasar 1kg</th>
+                        <th>Rp 6.000,00</th>
+                        <th>10</th>
+                    </tr>
+                    <tr>
+                        <th>28</th>
+                        <th>Kecap Manis 600ml</th>
+                        <th>Rp 12.000,00</th>
+                        <th>10</th>
+                    </tr>
+                    <tr>
+                        <th>29</th>
+                        <th>Kecap Asin 600ml</th> 
+                        <th>Rp 12.000,00</th>
+                        <th>10</th>
+                    </tr>
+                    <tr>
+                        <th>30</th>
+                        <th>Saus Tomat 600ml</th>
+                        <th>Rp 15.000,00</th>
+                        <th>10</th>
+                    </tr>
+                    <tr>
+                        <th>31</th>
+                        <th>Saus Sambal 600ml</th>
+                        <th>Rp 15.000,00</th>
+                        <th>10</th>
+                    </tr>
+                    <tr>
+                        <th>32</th>
+                        <th>Saus Teriyaki 200ml</th>
+                        <th>Rp 10.000,00</th>
+                        <th>10</th>
+                    </tr>
+                    <tr>
+                        <th>33</th>
+                        <th>Saus Tiram 200ml</th>
+                        <th>Rp 15.000,00</th>
+                        <th>10</th>
+                    </tr>
+                    <tr>
+                        <th>34</th>
+                        <th>Saus Berbecue 200ml</th>
+                        <th>Rp 12.000,00</th>
+                        <th>10</th>
+                    </tr>
+                    <tr>
+                        <th>35</th>
+                        <th>Kacang Tanah/bungkus</th>
+                        <th>Rp 8.000,00</th>
+                        <th>10</th>
+                    </tr>
+                    <tr>
+                        <th>36</th>
+                        <th>Kcang Merah/bungkus</th>
+                        <th>Rp 10.000,00</th>
+                        <th>10</th>
+                    </tr>
+                    <tr>
+                        <th>37</th>
+                        <th>Merica Bubuk 50gr</th>
+                        <th>Rp 8.000,00</th>
+                        <th>10</th>
+                    </tr>
+                    <tr>
+                        <th>38</th>
+                        <th>Ketembae Bubuk 50gr</th>
+                        <th>Rp 7.000,00</th>
+                        <th>10</th>
+                    </tr>
+                    <tr>
+                        <th>39</th>
+                        <th>Kunyit Bubuk 50gr</th>
+                        <th>Rp 7.000,00</th>
+                        <th>10</th>
+                    </tr>
+                    <tr>
+                        <th>40</th>
+                        <th>Margarin 250gr</th>
+                        <th>Rp 8.000,00</th>
+                        <th>10</th>
+                    </tr>
+                    <tr>
+                        <th>41</th>
+                        <th>Keju Cheddar 100gr</th>
+                        <th>Rp 15.000,00</th>
+                        <th>10</th>
+                    </tr>
+                    <tr>
+                        <th>42</th>
+                        <th>Bawang Putih/kg</th>
+                        <th>Rp 30.000,00</th>
+                        <th>10</th>
+                    </tr>
+                    <tr>
+                        <th>43</th>
+                        <th>Bawang Merah/kg</th>
+                        <th>Rp 35.000,00</th>
+                        <th>10</th>
+                    </tr>
+                    <tr>
+                        <th>44</th>
+                        <th>Bawang Bombay/kg</th>
+                        <th>Rp 30.000,00</th>
+                        <th>10</th>
+                    </tr>
+                    <tr>
+                        <th>45</th>
+                        <th>Sirup Rasa Lechy 1botol</th>
+                        <th>Rp 30.000,00</th>
+                        <th>10</th>
+                    </tr>
+                    <tr>
+                        <th>46</th>
+                        <th>Sirup Rasa Jeruk 1botol</th>
+                        <th>Rp 30.000,00</th>
+                        <th>10</th>
+                    </tr>
+                    <tr>
+                        <th>47</th>
+                        <th>Nugget Ayam/bungkus</th>
+                        <th>Rp 15.000,00</th>
+                        <th>10</th>
+                    </tr>
+                    <tr>
+                        <th>48</th>
+                        <th>Sosis Ayam/bungkus</th>
+                        <th>Rp 15.000,00</th>
+                        <th>10</th>
+                    </tr>
+                    <tr>
+                        <th>49</th>
+                        <th>Bakso Ayam/bungkus</th>
+                        <th>Rp 15.000,00</th>
+                        <th>10</th>
+                    </tr>
+                    <tr>
+                        <th>50</th>
+                        <th>Otak Otak/bungkus</th>
+                        <th>Rp 20.000,00</th>
+                        <th>10</th>
+                    </tr>
+                </thead>
+                <tbody id="dataBarang"></tbody>
+            </table>
+
+            <!-- Tabel Data Pelanggan -->
+            <h3>Daftar Pelanggan</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Nama Pelanggan</th>
+                        <th>Nomor HP</th>
+                    </tr>
+                    <tr>
+                        <th>1</th>
+                        <th>Nurijasni</th>
+                        <th>085234756435</th>
+                    </tr>
+                    <tr>
+                        <th>2</th>
+                        <th>Prima Gusnita</th>
+                        <th>081254735442</th>
+                    </tr>
+                    <tr>
+                        <th>3</th>
+                        <th>Gita Lestari</th>
+                        <th>08116654323</th>
+                    </tr>
+                    <tr>
+                        <th>4</th>
+                        <th>Arwinda Novitri</th>
+                        <th>081266538967</th>
+                    </tr>
+                    <tr>
+                        <th>5</th>
+                        <th>Ria Friska Lestari</th>
+                        <th>085234212243</th>
+                    </tr>
+                    <tr>
+                        <th>6</th>
+                        <th>Nurega Athala Hakimah</th>
+                        <th>081266809452</th>
+                    </tr>
+                    <tr>
+                        <th>7</th>
+                        <th>Siti Fadhilah</th>
+                        <th>085242126642</th>
+                    </tr>
+                    <tr>
+                        <th>8</th>
+                        <th>Suci Wulandari</th>
+                        <th>081163542884</th>
+                    </tr>
+                    <tr>
+                        <th>9</th>
+                        <th>Nadin Agnia Putri</th>
+                        <th>081235246757</th>
+                    </tr>
+                    <tr>
+                        <th>10</th>
+                        <th>Nayara Syaqila Queen</th>
+                        <th>085234686680</th>
+                    </tr>
+                </thead>
+                <tbody id="dataPelanggan"></tbody>
+            </table>
+
+            <!-- Tabel Rekap Penjualan -->
+            <h3>Rekapitulasi Penjualan Harian, Bulanan, dan Tahunan</h3>
+            <!-- Harian -->
+            <h3>Harian</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Tanggal</th>
+                        <th>Pendapatan</th>
+                    </tr>
+                    <tr>
+                        <th>1</th>
+                        <th>12/02/2025</th>
+                        <th>Rp250.000</th>
+                    </tr>
+                    <tr>
+                        <th>2</th>
+                        <th>13/02/2025</th>
+                        <th>Rp340.000</th>
+                    </tr>
+                </thead>
+                <tbody id="rekapHarian"></tbody>
+            </table>
+
+            <!-- Bulanan -->
+            <h3>Bulanan</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Bulan</th>
+                        <th>Pendapatan</th>
+                    </tr>
+                    <tr>
+                        <th>1</th>
+                        <th>Maret</th>
+                        <th>Rp 3.000.000</th>
+                    </tr>
+                </thead>
+                <tbody id="rekapBulanan"></tbody>
+            </table>
+
+            <!-- Tahunan -->
+            <h3>Tahunan</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Tahun</th>
+                        <th>Pendapatan</th>
+                    </tr>
+                    <tr>
+                        <th>1</th>
+                        <th>2023</th>
+                        <th>Rp 30.000.000</th>
+                    </tr>
+                </thead>
+                <tbody id="rekapTahunan"></tbody>
+            </table>
+
+        </div>
+
+        <script>
+            let nomorBarang = 1;
+            let nomorPelanggan = 1;
+            let nomorTransaksi = 1;
+            let transaksiData = [];
+
+            function tambahBarang() {
+                let namaBarang = document.getElementById("namaBarang").value;
+                let harga = document.getElementById("harga").value;
+                let stok = document.getElementById("stok").value;
+
+                if (namaBarang && harga && stok) {
+                    let table = document.getElementById("dataBarang");
+                    let row = table.insertRow();
+                    row.insertCell(0).innerText = nomorBarang++;
+                    row.insertCell(1).innerText = namaBarang;
+                    row.insertCell(2).innerText = harga;
+                    row.insertCell(3).innerText = stok;
+                    let aksi = row.insertCell(4);
+                    let btnHapus = document.createElement("button");
+                    btnHapus.innerText = "Hapus";
+                    btnHapus.onclick = function () {
+                        table.deleteRow(row.rowIndex - 1);
+                    };
+                    aksi.appendChild(btnHapus);
+                    document.getElementById("formBarang").reset();
+                } else {
+                    alert("Harap isi semua data barang!");
+                }
+            }
+
+            function tambahPelanggan() {
+                let namaPelanggan = document.getElementById("namaPelanggan").value;
+                let nomorHP = document.getElementById("nomorHP").value;
+
+                if (namaPelanggan && nomorHP) {
+                    let table = document.getElementById("dataPelanggan");
+                    let row = table.insertRow();
+                    row.insertCell(0).innerText = nomorPelanggan++;
+                    row.insertCell(1).innerText = namaPelanggan;
+                    row.insertCell(2).innerText = nomorHP;
+                    document.getElementById("formPelanggan").reset();
+                } else {
+                    alert("Harap isi semua data pelanggan!");
+                }
+            }
+
+            function tambahTransaksi() {
+                let pelanggan = document.getElementById("transaksiPelanggan").value;
+                let barang = document.getElementById("transaksiBarang").value;
+                let jumlah = document.getElementById("transaksiJumlah").value;
+                let tanggal = new Date().toLocaleDateString();
+                let total = jumlah * parseFloat(document.getElementById("harga").value);
+
+                if (pelanggan && barang && jumlah) {
+                    let table = document.getElementById("dataTransaksi");
+                    let row = table.insertRow();
+                    row.insertCell(0).innerText = nomorTransaksi++;
+                    row.insertCell(1).innerText = pelanggan;
+                    row.insertCell(2).innerText = barang;
+                    row.insertCell(3).innerText = jumlah;
+                    row.insertCell(4).innerText = total;
+                    row.insertCell(5).innerText = tanggal;
+
+                    // Simpan transaksi untuk rekap
+                    transaksiData.push({ tanggal, total });
+
+                    // Update rekap harian, bulanan, tahunan
+                    updateRekap();
+                    document.getElementById("formTransaksi").reset();
+                } else {
+                    alert("Harap isi semua data transaksi!");
+                }
+            }
+
+            function updateRekap() {
+                let rekapHarian = {};
+                let rekapBulanan = {};
+                let rekapTahunan = {};
+
+                transaksiData.forEach(item => {
+                    let dateObj = new Date(item.tanggal);
+                    let day = dateObj.toISOString().split('T')[0];
+                    let month = `${dateObj.getFullYear()}-${dateObj.getMonth() + 1}`;
+                    let year = dateObj.getFullYear();
+
+                    // Harian
+                    if (!rekapHarian[day]) {
+                        rekapHarian[day] = 0;
+                    }
+                    rekapHarian[day] += item.total;
+
+                    // Bulanan
+                    if (!rekapBulanan[month]) {
+                        rekapBulanan[month] = 0;
+                    }
+                    rekapBulanan[month] += item.total;
+
+                    // Tahunan
+                    if (!rekapTahunan[year]) {
+                        rekapTahunan[year] = 0;
+                    }
+                    rekapTahunan[year] += item.total;
+                });
+
+                // Update Tabel Harian
+                let harianTable = document.getElementById("rekapHarian");
+                harianTable.innerHTML = '';
+                for (let date in rekapHarian) {
+                    let row = harianTable.insertRow();
+                    row.insertCell(0).innerText = date;
+                    row.insertCell(1).innerText = `Rp ${rekapHarian[date].toLocaleString()}`;
+                }
+
+                // Update Tabel Bulanan
+                let bulananTable = document.getElementById("rekapBulanan");
+                bulananTable.innerHTML = '';
+                for (let month in rekapBulanan) {
+                    let row = bulananTable.insertRow();
+                    row.insertCell(0).innerText = month;
+                    row.insertCell(1).innerText = `Rp ${rekapBulanan[month].toLocaleString()}`;
+                }
+
+                // Update Tabel Tahunan
+                let tahunanTable = document.getElementById("rekapTahunan");
+                tahunanTable.innerHTML = '';
+                for (let year in rekapTahunan) {
+                    let row = tahunanTable.insertRow();
+                    row.insertCell(0).innerText = year;
+                    row.insertCell(1).innerText = `Rp ${rekapTahunan[year].toLocaleString()}`;
+                }
+            }
+        </script>
+    </body>
+</html>
